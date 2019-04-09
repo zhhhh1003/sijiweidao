@@ -1,0 +1,11 @@
+<import src="../common/tab.wxml" />
+<view class="container">
+<template is="tab" data="{{list:list,sortindex:sortindex}}" />
+  <view class="goods-content">
+            <view wx:if="{{sortindex === 0}}">{{goods.detail}}</view>
+            <view wx:if="{{sortindex === 1}}">{{goods.parameter}}</view>
+            <view wx:if="{{sortindex === 2}}">{{goods.service}}</view>
+   </view>
+</view>
+
+ 

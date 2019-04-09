@@ -1,0 +1,22 @@
+ <view class="main">  
+   <view class="user_reset">
+    <form bindsubmit="formSubmit">
+   <view class="classname">
+   <input type="number" name="mobile" placeholder="请输入手机号" value="{{user.phone}}" bindinput="bindPhone"  />
+   </view>
+    <view class="classname">
+   <input type="password" name="password" placeholder="请输入密码"  value="{{user.password}}" bindinput="bindPassword"/>
+   </view> 
+    <view class="classname">
+   <input type="password" name="confirm" placeholder="请确认密码"  value="{{user.confirm}}" bindinput="bindConfirm"/>
+   </view> 
+    <view  class="section">
+      <input class="verification" name="verification" value="{{user.verification}}" 
+      placeholder="验证码" placeholder-class="input-placeholder"  bindinput="bindVerification"/>
+      <button size="mini" plain="true" class="{{is_show?'show':'hide'}} verification-btn" hover-class="btn-hover"  bindtap="bindGetVerification"> 获取验证码 </button>
+      <button size="mini" plain="true" class="{{is_show?'hide':'show'}} verification-btn" hover-class="btn-hover" > {{last_time}}s 重新获取 </button>
+    </view>
+    <button form-type="submit">注册</button>
+    </form>
+   </view>
+    </view>  

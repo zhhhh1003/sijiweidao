@@ -1,0 +1,36 @@
+<view class="main">
+ <view class="ordes-attr">
+  <view>状态: <text>{{attr.status}}</text></view>
+  <view>订单编号: {{attr.code}}</view>
+  <view>快递单号: {{attr.name}} {{attr.number}}</view>
+  <view>下单时间: {{attr.time}}</view>
+ </view>
+ <view class="orders-address">
+  <view class="orders-address-detail">收货地址: {{region}} {{address.detail}}</view>
+  <view class="orders-address-name">收货人: {{address.name}}  {{address.phone}}</view>
+ </view>
+ <view class="orders-box">
+  <view wx:for="{{orders}}" wx:key="index" class="orders-list">
+   <image class="orders-thumb" src="{{item.image}}"></image>
+   <view class="orders-pro-name">{{item.title}}</view>
+   <view class="orders-pro-attr">规格:{{item.cont}}</view>
+   <text style="float:left;">￥{{item.price}}</text>
+   <text style="float:right;">×{{item.num}}</text>
+  </view>
+ </view>
+
+    <view class="orders-footer">
+        <view class="goods-price">
+         <text style="float:left;">商品金额</text>
+         <text style="float:right; color:#ff0033;">￥{{total}}</text>
+        </view>
+        <view  class="goods-price">
+         <text style="float:left;">运费</text>
+         <text style="float:right; color:#ff0033;">￥{{freight}}</text>
+        </view>
+        <view  class="goods-price">
+         <text style="float:right; color:#ff0033;"> ￥{{sum}}</text>
+         <text style="float:right; ">实付金额</text>
+        </view>
+    </view>
+</view>

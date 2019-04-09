@@ -1,0 +1,29 @@
+.swiper-tab {
+  width: 100%;
+  text-align: center;
+  line-height: 80rpx;
+}
+
+.swiper-tab-list {
+  font-size: 30rpx;
+  display: inline-block;
+  width: 25%;
+  font-family: "微软雅黑";
+  color: #3d4d65;
+}
+
+.active {
+  color: #f0033a;
+  border-bottom: 5rpx solid #f0033a;
+}
+
+.swiper-box {
+  display: block;
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+}
+
+.swiper-box view {
+  text-align: center;
+}

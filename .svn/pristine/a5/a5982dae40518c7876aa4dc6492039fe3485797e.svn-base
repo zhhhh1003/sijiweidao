@@ -1,0 +1,37 @@
+<view class="main">
+    <navigator url="../address/address">
+        <view wx:if="{{hasAddress}}" class="orders-address">
+            <view class="orders-address-name">{{address.name}}  {{address.phone}}</view>
+            <!--<view class="orders-address-phone"></view>-->
+            <view class="orders-address-detail">{{region}} {{address.detail}}</view>
+        </view>
+        <view wx:else class="orders-no-address">添加收货地址</view>
+    </navigator>
+    <scroll-view style="height:660rpx;" scroll-y>
+      <view class="orders-box">
+        <view wx:for="{{orders}}" wx:key="index" class="orders-list">
+            <image class="orders-thumb" src="{{item.image}}"></image>
+            <view class="orders-pro-name">{{item.title}}</view>
+             <view class="orders-pro-attr">规格:{{item.cont}}</view>
+            <text style="float:left;">￥{{item.price}}</text>
+            <text style="float:right;">×{{item.num}}</text>
+        </view>
+     </view>
+    </scroll-view>
+   
+    <view class="orders-footer">
+        <view class="goods-price">
+         <text style="float:left;">商品金额</text>
+         <text style="float:right; color:#ff0033;">￥{{total}}</text>
+        </view>
+        <view  class="goods-price">
+         <text style="float:left;">运费</text>
+         <text style="float:right; color:#ff0033;">￥{{freight}}</text>
+        </view>
+        <view  class="goods-price">
+         <text style="float:right; color:#ff0033;"> ￥{{sum}}</text>
+         <text style="float:right; ">实付金额</text>
+        </view>
+        <view class="pay-btn">微信支付</view>
+    </view>
+</view>

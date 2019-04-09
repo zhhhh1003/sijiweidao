@@ -1,0 +1,162 @@
+/**index.wxss**/
+.index{
+    background-color: #ebebeb;
+    flex: 1;
+    min-height: 100%;
+    font-size: 32rpx;
+}
+
+.layout {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+}
+.container{
+  padding: 0;
+}
+.banner{
+  width:100%;
+  height:300rpx;
+  background: #ff0033;
+  
+}
+.banner .banner-logo{
+  width:100%;
+  height:100rpx;
+  
+  color: white;
+  text-align: center;
+
+}
+.banner .banner-logo text{
+  margin-top: 60rpx;
+  display: block;
+  font-size: 38rpx;
+}
+.banner .banner-search{
+   width:100%;
+  height:120rpx;
+  position: relative;
+}
+.search-icon{
+  width:60rpx;
+  height:60rpx;
+  position:absolute;
+  left:7%;
+  top:15rpx;
+  z-index: 1000;
+  float:left;
+}
+.placeholder-shopping{
+  font-size: 30rpx;
+  text-align: center;
+}
+.search-shopping{
+  background: white;
+  text-align: center;
+  width:80%;
+  margin-left:5%;
+  padding-left:10%;
+  height:80rpx;
+  border-bottom-left-radius: 20px;
+  border-top-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+  border-top-right-radius: 20px;
+}
+.index-menu{
+	width: 100%;
+	 display: -webkit-flex;
+	display: -webkit-box;
+	display: flex;
+	-webkit-flex-wrap: wrap;
+	        flex-wrap: wrap; 
+	background: #fff;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  padding: 30rpx;
+  border-bottom: 16rpx solid #ddd;
+}
+.index-menu-item{
+	-webkit-flex: 0 0 25%;
+	-webkit-box-flex: 0;
+	        flex: 0 0 25%;
+	max-width: 25%;
+	text-align: center;
+	margin-top: 10rpx;
+/* 	border-top: 1rpx solid #ddd;
+	border-bottom: 1rpx solid #ddd;
+	border-right: 1rpx solid #ddd; */
+	padding: 20rpx 20rpx;
+	box-sizing: border-box;
+	margin-bottom: -1rpx;
+}
+.index-menu-item image{
+	width: 60rpx;
+	height: 60rpx;
+}
+.index-menu-item text{
+	display: block;
+	line-height: 1.4;
+	white-space: nowrap;
+  font-size: 26rpx;
+  color: #707070;
+}
+
+.service-list{
+	padding: 0 20rpx;
+  width:100%;
+}
+.service-item{
+	display: flex;
+	padding: 20rpx 0; 
+	border-bottom: 1rpx solid #e8e8e8;
+}
+.service-img{
+	width: 220rpx;
+	height: 200rpx;
+}
+.service-img image{
+	width: 220rpx;
+	height: 200rpx;
+}
+.service-text{
+	flex: 1;
+	margin-left: 20rpx;
+}
+.service-text .service-tite{
+	color: #333;
+	width: 455rpx;
+	font-size: 28rpx;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+.service-price{
+  font-size: 28rpx;
+  color:red;
+}
+.service-account text{
+   font-size: 26rpx;
+   color:#989898;
+}
+.service-tags{
+	margin: 6rpx 0;
+}
+.service-tags text{
+	padding: 8rpx 20rpx;
+	line-height: 1;
+   background: #ff0033;
+	color: white;
+	font-size: 28rpx;
+	border-radius: 10rpx;
+	margin-right: 10rpx;
+	margin-bottom: 10rpx;
+	white-space: nowrap;
+}
+.service-city{
+	color: #666;
+}

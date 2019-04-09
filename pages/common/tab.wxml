@@ -1,0 +1,9 @@
+ 
+ <template name="tab">
+<view class="swiper-tab">
+    <view  bindtap="setSortBy" data-sortindex="{{index}}" data-sortid="{{item.id}}" 
+    class="{{sortindex==index?'active':''}} swiper-tab-list" wx:for="{{list}}" 
+    wx:key="{{item.id}}">{{item.title}}</view>
+  </view>
+ </template>
+ 

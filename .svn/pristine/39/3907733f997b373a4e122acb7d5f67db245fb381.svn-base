@@ -1,0 +1,148 @@
+//index.js
+//获取应用实例
+var app = getApp()
+
+var ajaxUrl = require('../../utils/url.js');
+Page({
+  data: {
+    indexmenu: [],
+    reservelist: [],
+    servicelist: [],
+    scrolltop: null, //滚动位置
+    page: 0 , //分页
+    postsList: [
+
+    ],//商品列表
+   
+  },
+  onLoad: function () {
+    this.fetchData();
+  // this.fetchServiceData();
+    this.fetchGoodsListDate();
+   
+  
+  },
+  //icon
+  fetchData: function () {
+    this.setData({
+      indexmenu: [
+        {
+          'icon': './../../images/icon-company.png',
+          'text': '公司简介',
+          'url': 'space'
+        },
+        {
+          'icon': './../../images/icon-chat.png',
+          'text': '联系方式',
+          'url': 'service'
+        },
+        {
+          'icon': './../../images/icon-logistics.png',
+          'text': '物流查询',
+          'url': 'logistics'
+        },
+        {
+          'icon': './../../images/icon-classes.png',
+          'text': '商品分类',
+          'url': 'classes'
+        }
+      ]
+    })
+  },
+  changeRoute: function (url) {
+    wx.navigateTo({
+      url: `../${url}/${url}`
+    })
+  },
+  redictDetail: function (e) {  //跳转至详情页
+    var id = e.currentTarget.dataset.id;
+    var link = "../goods/goods?id=" + id
+    wx.navigateTo({
+      url: link
+    })
+  },
+
+  fetchGoodsListDate: function (data) { //商品列表ajax
+    wx.showToast({
+       title: '加载中',
+      icon: 'loading'
+    })
+      var self = this;
+    // self.setData({
+    //   hidden: false
+    // });
+    // if (!data) data = {};
+    // if (!data.page) data.page = 1;
+    // if (data.page === 1) {
+    //   self.setData({
+    //     postsList: []
+    //   });
+    // }
+      wx.request({
+        method: "GET",
+        url: app.globalData.requestUrl + "?act=getGoods",
+        data: {
+          "type": 'new',
+          "token": '123',
+          'page': 1,
+          "pageSize": 10
+        },
+        header: {
+          'Content-Type': 'application/json'
+        },
+        success: function (res) {
+          if (res.data.result) {
+            for (var i in res.data.data) {
+              self.data.postsList.push({
+                imgUrl: res.data.data[i].thumb,
+                content: res.data.data[i].name,
+                price: "$" + res.data.data[i].final_price,
+                account: res.data.data[i].sell_count,
+                tag: "立即订购",
+                id: res.data.data[i].id
+              });
+            }
+          }
+          self.setData({
+            postsList: self.data.postsList
+          })
+          //   self.data.postsList = contentObj
+          setTimeout(function () {
+            self.setData({
+              hidden: true
+            });
+          }, 300);
+        }
+      })
+
+  },
+  //商品列表滚动
+  lower: function (e) {
+    var self = this;
+    self.setData({
+      page: self.data.page + 1
+    });
+
+    self.fetchImgListDate({ page: self.data.page });
+  },
+  onPullDownRefresh: function () { //下拉刷新
+    this.setData({
+      page: 0,
+      postList: []
+    })
+    fetchImgListDate
+    setTimeout(() => {
+      wx.stopPullDownRefresh()
+    }, 1000)
+  },
+    
+  onPullDownRefresh: function () {
+    //页面相关事件处理函数--监听用户下拉动作
+    // console.log('onPullDownRefresh');
+  },
+  onReachBottom: function () {
+    //页面上拉触底事件的处理函数
+    // console.log('onReachBottom');
+  },
+   
+})

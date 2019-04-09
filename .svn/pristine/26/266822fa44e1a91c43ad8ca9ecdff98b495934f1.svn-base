@@ -1,0 +1,72 @@
+<import src="../../plugins/wxParse/wxParse.wxml"/> 
+<view class="container">
+  <swiper class="index-banner" indicator-dots="{{true}}"
+    autoplay="{{true}}" interval="{{4000}}" indicator-active-color="#ff0033" duration="{{1000}}">
+    <block wx:for="{{imgUrls}}" wx:key="*this">
+      <swiper-item>
+        <image src="{{item.thumb_url}}" mode="aspectFit" class="slide-image"/>
+      </swiper-item>
+    </block>
+  </swiper>
+  <view class="goods-contact">
+    <text>{{content}}</text>
+    <text class="goods-price">{{price}}</text>
+  </view>
+  <view class="goods-format">
+    
+  <view class="attrmain" wx:for="{{attribute1}}" wx:for-item="item" wx:key="{{item.id}}" 
+    wx:for-index="parentIndex">
+        <view class="attribute-name">
+          <text>{{item.name}}</text>
+        </view>
+
+        <view class="cart-attribute">
+          <block wx:for="{{item.values}}" wx:for-item="val" wx:key="{{val.id}}" wx:for-index="childerIndex">
+            <text data-sortid="{{val.id}}" data-chindex="{{childerIndex}}" data-parindex="{{parentIndex}}" bindtap="switchAttr" class="{{attribute1CurrentIndex[parentIndex] == childerIndex ?'on':''}}">{{val.label}}</text>
+          </block>
+        </view>
+
+   </view>
+    
+   <view class="attrmain">
+     <view class="attribute-name">
+       <text>数量:</text>
+     </view>
+    <view class="cart-count-box">
+       <text class="cart-count-down" data-alpha-beta="0" bindtap="changeNum" >-</text>
+       <text class="cart-count-num">{{num}}</text>
+       <text class="cart-count-add" data-alpha-beta="1" bindtap="changeNum"  >+</text>
+     </view>
+   </view>
+    
+  </view>
+  <view class="swiper-tab">
+    <view  bindtap="setSortBy" data-sortindex="{{index}}" data-sortid="{{item.id}}" 
+    class="{{sortindex==index?'active':''}} swiper-tab-list" wx:for="{{sort}}" 
+    wx:key="{{item.id}}">{{item.title}}</view>
+    <view class="goods-content wxParse" style="padding-bottom:30rpx">
+      <template is="wxParse" wx:if="{{sortindex === 0}}" data="{{wxParseData:desc.nodes}}"/>
+      <!-- <template is="wxParse" wx:if="{{sortindex === 1}}" data="{{wxParseData:desc.nodes}}"/> -->
+      <view wx:if="{{sortindex === 1}}">
+          <block wx:for="{{goodProperty}}" wx:for-item="val" wx:key="{{val.id}}" wx:for-index="index">
+            <text style="display:block">{{val.name + ':' + val.value}}</text>
+          </block>
+      </view>
+   </view>
+  </view>
+  	<view class="container-footer">
+      <navigator open-type="switchTab" url="../cart/cart">
+            <view class="shopping-car carts-icon {{scaleCart?'on':''}}">
+                <image src="/images/cart.png"></image>
+                <text class="carts-icon-num" wx:if="{{hasCarts}}">{{totalNum}}</text>
+            </view>
+        </navigator>
+					<text class="apply-btn" index="{{index}}" data-userid="{{item.userId}}" 
+          data-suitid="{{item.suitId}}"  bindtap="addShopCart"
+           data-status="1">立即购买</text>
+	  	<text  bindtap="addToCart" data-type="addcart">加入购物车</text>
+	</view>
+</view>
+
+
+

@@ -1,0 +1,15 @@
+<view class="main wrap">
+<view class="detail-box">
+ <text class="left">服务类型:</text>
+   <radio-group class="radio-group left" bindchange="radioChange">
+   <label class="radio" wx:for="{{items}}">
+     <radio value="{{item.name}}" checked="{{item.checked}}"/>{{item.value}}
+   </label>
+ </radio-group>
+</view>
+<view class="detail-box">
+  <text class="left">问题描述:</text>
+  <textarea></textarea>
+</view>
+
+</view>

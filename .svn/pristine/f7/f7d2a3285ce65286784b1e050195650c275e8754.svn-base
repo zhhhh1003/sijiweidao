@@ -1,0 +1,75 @@
+<import src="../common/tab.wxml" />
+<view class="container">
+<template is="tab" data="{{list:list,sortindex:sortindex}}" />
+  <view class="goods-content">
+   <view wx:if="{{sortindex === 0}}">
+    <view wx:if="{{hasList}}">
+      <view class="orders-box">
+        <view class="orders-list" wx:for="{{orders}}" wx:key="index">
+            <view class="orders-number">状态：{{item.status}}</view>
+             <view class="orders-money">总价：￥{{item.money}}</view>
+            <view class="orders-detail" wx:for="{{item.orders}}" wx:for-item="val">
+                <image src="{{val.thumb}}"></image>
+                <view class="">{{val.name}}</view>
+                <view class="">{{val.count}}</view>
+            </view>
+            <view class="orders-footer">
+                <button wx:if="{{item.paying}}" size="mini" class="orders-btn"  bindtap="payOrders">付款</button>
+                  <button wx:if="{{item.cancel}}" size="mini" class="orders-btn orders-cancel" bindtap="">取消</button>
+            </view>
+        </view>
+     </view>
+    </view>
+     <view wx:else>
+        <view class="cart-no-data">订单是空的哦</view>
+    </view>
+   </view>
+   <view wx:if="{{sortindex === 1}}">
+    <view wx:if="{{hasList}}">
+      <view class="orders-box">
+        <view class="orders-list" wx:for="{{payList}}" wx:key="index">
+           <view class="orders-number">状态：{{item.status}}</view>
+             <view class="orders-money">总价：￥{{item.money}}</view>
+            <view class="orders-detail" wx:for="{{item.payList}}" wx:for-item="val">
+                <image src="{{val.thumb}}"></image>
+                <view class="">{{val.name}}</view>
+                 <view class="">规格 {{val.cont}}</view>
+                <view class="">{{val.count}}</view>
+            </view>
+            <view class="orders-footer">
+                <button size="mini" class="orders-btn" bindtap="payOrders">付款</button>
+                  <button size="mini" class="orders-btn orders-cancel" bindtap="">取消</button>
+            </view>
+        </view>
+    </view>
+    </view>
+     <view wx:else>
+        <view class="cart-no-data">订单是空的哦</view>
+    </view>  
+   </view>
+   <view wx:if="{{sortindex === 2}}">
+       <view wx:if="{{hasList}}">
+      <view class="orders-box">
+      <view class="orders-list" wx:for="{{receiveList}}" wx:key="index">
+            <view class="orders-number">状态：{{item.status}}</view>
+            <view class="orders-money">总价：￥{{item.money}}</view>
+            <view class="orders-detail" bindtap="bindDetail" wx:for="{{item.receiveList}}" wx:for-item="val" >
+                <image src="{{val.thumb}}"></image>
+                <view class="">{{val.name}}</view>
+                  <view class="">规格 {{val.cont}}</view>
+                <view class="">{{val.count}}</view>
+            </view>
+            <view class="orders-footer">
+                <button wx:if="{{item.receiving}}" size="mini" class="orders-btn orders-receive" bindtap="">确认收货</button>
+            </view>
+        </view>
+    </view>
+    </view>
+     <view wx:else>
+        <view class="cart-no-data">订单是空的哦</view>
+    </view>       
+   </view>
+   </view>
+</view>
+
+ 

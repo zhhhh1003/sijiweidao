@@ -1,0 +1,87 @@
+@import "../common/common.wxss";
+.user_reset{
+  width: 100%;
+  height:100%;
+  overflow: hidden;
+  box-sizing:border-box;
+  -webkit-box-sizing: border-box;
+  margin-top: 30%;
+}
+.user_reset input{
+  float: left;
+  /* border:1px solid #ff0033; */
+  background: #fff;
+  width:80%;
+  height:40rpx;
+  line-height:40rpx;
+  margin-left: 5%;
+   padding:15rpx 20rpx; 
+  padding-left:40rpx;
+  box-shadow: 8px 6px 6px #ccc;
+  font-size: 28rpx;
+  font-family: "微软雅黑";
+}
+.user_reset view{
+  padding:20rpx 0;
+  height:60rpx;
+  line-height: 60rpx;
+  width:100%;
+}
+.user_reset button{
+    margin:100rpx 30rpx 0 0;
+    background: #ff0033;
+    color:#fff;
+    width:90%;
+    margin-left: 5%;
+      border-radius: 50rpx;
+}
+
+
+/*获取验证码  */
+.section {
+  display: flex;
+}
+.user_reset  .verification {
+ float: left;
+  margin: 20px 0;
+  width:45%;
+  margin-left: 5%;
+}
+
+
+.input-placeholder {
+  color: #aaa!important;
+}
+
+.user_reset .verification-btn {
+  border: 1px solid #bbb!important;
+  color: #777!important;
+  float: left;
+  border-radius: 0px;
+   height:70rpx;
+  line-height:70rpx;
+  background: none;
+  width:30%;
+   
+   margin:55rpx 0 0 0;
+   margin-left: 5%;
+
+}
+
+.btn-hover {
+  background-color: #eee!important;
+}
+
+.next-btn {
+  margin: 20px 0;
+  border: 1px solid #bbb!important;
+  color: #777!important;
+  width: 100%;
+  border-radius: 0px;
+}
+.show{
+  display: block ! important;
+}
+.hide{
+  display: none ! important;
+}

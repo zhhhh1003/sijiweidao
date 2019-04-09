@@ -1,0 +1,20 @@
+<view class="main">
+<scroll-view class="container-body" scroll-y="true" bindscrolltolower="lower">
+	<view  index="{{index}}">
+     <block wx:for="{{postsList}}" wx:key="unique">
+        <view class="service-list" data-goodsid="{{item.id}}" catchtap="redictDetail">
+          <view class="service-item">
+           <view class="service-img">
+             <image src="{{item.imgUrl}}" mode="aspectFill"></image>
+           </view>
+      	<view class="service-text">
+					<view class="service-tite">{{item.content}}</view>
+          	<text class="service-price">售价：{{item.price}}</text>
+			    </view>
+           </view>
+        </view>
+      </block>
+      	</view>
+		<view class="gototop {{scrolltop>200?'active':''}}" bindtap="goToTop"></view>
+	</scroll-view>
+</view>

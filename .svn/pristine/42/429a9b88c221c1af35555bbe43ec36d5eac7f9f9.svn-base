@@ -1,0 +1,65 @@
+Page({
+  data:{
+    user: {
+      phone: '',
+      password: '',
+      confirm: ''
+    },
+  },
+  formSubmit: function (e) {
+    //console.log(e.detail.value)
+    var mobile = e.detail.value.mobile;
+    var password = e.detail.value.password;
+    var confirm = e.detail.value.confirm;
+    var myreg = /^(((13[0-9]{1})|(15[0-9]{1})|(18[0-9]{1})|(17[0-9]{1}))+\d{8})$/; //手机号验证
+    var passReg = /^.{6,}$/;
+    if (mobile.length != 11 && !myreg.test(mobile)) {
+      wx.showToast({
+        title: '请输入正确手机号',
+        icon: 'success',
+        duration: 1500
+      })
+      return false;
+    } if (!passReg.test(password)) {
+      wx.showToast({
+        title: '密码不可少于6位',
+        icon: 'success',
+        duration: 1500
+      })
+      return false;
+    } if (password != confirm) {
+      wx.showToast({
+        title: '两次密码不同',
+        icon: 'success',
+        duration: 1500
+      })
+      return false;
+    } else {
+      wx.showToast({
+        title: '绑定成功',
+        icon: 'success',
+        duration: 1500
+      })
+
+    }
+    return true;
+  },
+
+  bindPhone: function (e) {
+    this.setData({
+      'user.phone': e.detail.value
+    });
+  },
+  bindPassword: function (e) {
+    this.setData({
+      'user.password': e.detail.value
+    })
+  },
+  bindConfirm: function (e) {
+    this.setData({
+      'user.confirm': e.detail.value
+    })
+
+  },
+})
+

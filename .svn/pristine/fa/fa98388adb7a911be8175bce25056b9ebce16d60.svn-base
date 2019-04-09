@@ -1,0 +1,30 @@
+<view class="container">
+  <view class="header" wx:if="{{hasAccount}}">
+		<image class="avatar" src="{{userInfo.avatarUrl}}" />
+		<view class="nickname">{{userInfo.nickName}}</view>
+    <view class="account">账号:{{account}}</view>
+	</view>
+  <view class="header" wx:else>
+		<image class="avatar" src="../../images/header.png" />
+		<view class="nickname" bindtap="bindLogin">请登录/注册</view>
+	</view>
+  <view class="my-list">
+  <navigator class="my-item" url="{{menu[0]}}">
+    <image src="../../images/address.png" mode="aspectFit"></image>
+    <text>地址管理</text>
+  </navigator>
+  <navigator class="my-item" url="{{menu[1]}}">
+    <image src="../../images/full-order.png" mode="aspectFit"></image>
+    <text>全部订单</text>
+  </navigator>
+  <navigator class="my-item" url="{{menu[2]}}">
+    <image src="../../images/pending-payment.png" mode="aspectFit"></image>
+    <text>待付款</text>
+  </navigator>
+  <navigator class="my-item" url="{{menu[3]}}">
+    <image src="../../images/receiving.png" mode="aspectFit"></image>
+    <text>待收货</text>
+  </navigator>
+	</view>
+   
+</view>

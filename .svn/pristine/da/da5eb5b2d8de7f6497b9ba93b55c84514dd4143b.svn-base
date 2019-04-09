@@ -1,0 +1,109 @@
+//index.js
+//获取应用实例
+//var app = getApp()
+
+var ajaxUrl = require('../../utils/url.js');
+var app = getApp()
+Page({
+  data: {
+    reservelist: [],
+    servicelist: [],
+    scrolltop: null, //滚动位置
+    page: 0, //分页
+    postsList: [
+
+    ],//商品列表
+
+  },
+  onLoad: function () {
+    this.fetchImgListDate();
+  },
+  changeRoute: function (url) {
+    wx.navigateTo({
+      url: `../${url}/${url}`
+    })
+  },
+
+  redictDetail: function (e) {  //跳转至详情页
+    var userId = e.currentTarget.dataset.userid;
+    var suitId = e.currentTarget.dataset.suitid;
+    var link = "../goods/goods?viewUserId=" + userId + "&suitId=" + suitId
+    wx.navigateTo({
+      url: link
+    })
+  },
+
+  fetchImgListDate: function (data) { //商品列表ajax
+    wx.showToast({
+      title: '加载中',
+      icon: 'loading'
+    })
+    var self = this;
+    wx.request({
+      method: "GET",
+      url: ajaxUrl.ajaxUrl() + "?method=index.getChoicenessList",
+      data: {
+        "viewUserId": ''
+      },
+      header: {
+        'Content-Type': 'application/json'
+      },
+      success: function (res) {
+        console.log(res)
+        // var contentObj = [];
+        if (res.data.result == 0) {
+
+          for (var i in res.data.data.result) {
+            self.data.postsList.push({
+              imgUrl: res.data.data.result[i].image + "?imageMogr/v2/auto-orient/thumbnail/750x/quality/80/",
+              content: res.data.data.result[i].content,
+              price: "$10",
+              tag: "立即订购",
+              userId: res.data.data.result[i].userId,
+              suitId: res.data.data.result[i].suitId
+            });
+          }
+        }
+        self.setData({
+          postsList: self.data.postsList
+        })
+        //   self.data.postsList = contentObj
+        setTimeout(function () {
+          self.setData({
+            hidden: true
+          });
+        }, 300);
+      }
+    })
+
+  },
+  //商品列表滚动
+  lower: function (e) {
+    var self = this;
+    self.setData({
+      page: self.data.page + 1
+    });
+
+    self.fetchImgListDate({ page: self.data.page });
+  },
+  onPullDownRefresh: function () { //下拉刷新
+    this.setData({
+      page: 0,
+      postList: []
+    })
+    fetchImgListDate
+    setTimeout(() => {
+      wx.stopPullDownRefresh()
+    }, 1000)
+  },
+
+  onPullDownRefresh: function () {
+    //页面相关事件处理函数--监听用户下拉动作
+    // console.log('onPullDownRefresh');
+  },
+  onReachBottom: function () {
+    //页面上拉触底事件的处理函数
+    // console.log('onReachBottom');
+  },
+
+})

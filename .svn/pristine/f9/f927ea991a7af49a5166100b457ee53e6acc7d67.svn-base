@@ -1,0 +1,61 @@
+<!--index.wxml-->
+<view class="container">
+  <view class="banner">
+  <view class="banner-logo">
+    <text>苹果购物</text>  
+  </view>
+  <view class="banner-search">
+    <image class="search-icon" src="../../images/search.png"></image>
+     <input class="search-shopping" placeholder="请输入商品名称" placeholder-class="placeholder-shopping"/>
+  </view>
+  
+  </view>
+  <view class="index-menu">
+		<navigator class="index-menu-item" wx:for="{{indexmenu}}" wx:key="{{item.url}}" url="../{{item.url}}/{{item.url}}">
+			<image src="{{item.icon}}"></image>
+			<text>{{item.text}}</text>
+		</navigator>
+	</view>
+
+  <scroll-view class="container-body" scroll-y="true" scroll-top="{{scrolltop}}" bindscroll="scrollHandle" lower-threshold="50" bindscrolltolower="scrollLoading">
+		<view class="service-list">
+			<navigator class="service-item" wx:for="{{servicelist}}" wx:key="{{item.id}}" url="../goods/goods?id={{item.id}}">
+				<view class="service-img">
+					<image src="{{item.imgurl}}" mode="aspectFill"></image>
+				</view>
+				<view class="service-text">
+					<view class="service-tite">{{item.name}}</view>
+          	<text class="service-price">售价：{{item.price}}</text>
+            <view class="service-account">
+            	<text>已售：{{item.account}}</text>
+            </view>
+					<view class="service-tags">
+						<text>{{item.tag}}</text>
+					</view>
+				
+				</view>
+			</navigator>
+		</view>
+     <!--<block wx:for="{{postsList}}" wx:key="unique">
+                    <view class="service-list">
+                    <view class="service-item">
+                        <view class="service-img"  index="{{index}}" data-userid="{{item.userId}}" data-suitid="{{item.suitId}}" catchtap="redictDetail">
+                        <image src="{{item.imgUrl}}" mode="aspectFill"></image>
+                        </view>
+      	<view class="service-text">
+					<view class="service-tite">{{item.content}}</view>
+          	<text class="service-price">售价：{{item.price}}</text>
+            <view class="service-account">
+            	<text>已售：{{item.account}}</text>
+            </view>
+					<view class="service-tags">
+						<text>{{item.tag}}</text>
+					</view>
+				
+				</view>
+                </view>
+                    </view>
+                 </block>-->
+		<view class="gototop {{scrolltop>200?'active':''}}" bindtap="goToTop"></view>
+	</scroll-view>
+</view>

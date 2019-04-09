@@ -1,0 +1,17 @@
+ <view class="main">  
+   <view class="user_reset">
+    <form bindsubmit="formSubmit">
+   <view class="classname">
+   <input type="number" name="mobile" placeholder="请输入手机号" value="{{user.phone}}" bindinput="bindPhone"  />
+   </view>
+    <view class="classname">
+   <input type="password" name="password" placeholder="请输入密码"  value="{{user.password}}" bindinput="bindPassword"/>
+   </view> 
+   <view class="register">还没有账号?
+    <text bindtap="bindRegister">请注册</text>
+     <text style="float:left;" bindtap="bindForgetPassword">忘记密码?</text>
+   </view> 
+    <button form-type="submit">登录</button>
+    </form>
+   </view>
+    </view>  

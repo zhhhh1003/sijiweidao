@@ -1,0 +1,86 @@
+// page/component/orders/orders.js
+Page({
+  data: {
+    address: {}, //详细地址
+    region: [], //省市区联动
+   
+    total: 0,     //商品金额
+    freight: 10, //运费
+    //订单详情
+    attr:{
+      status:'待发货',
+      code:'wx2244678908',
+      time:'2017-8-10 11:52:33'
+    },
+    // 订单列表
+    orders: [{
+      id: 1,
+      title: '性感露背小黑裙性感露背小黑裙性感露背小黑裙性感露背小黑裙',
+      image: '/images/swiper1.jpg',
+      num: 4,
+      cont: '白色 xl白色 xl白色 xl白色 xl白色 xl白色 xl白色 xl',
+      price: 100
+    },
+    {
+      id: 2,
+      title: '性感露背小黑裙',
+      image: '/images/swiper1.jpg',
+      num: 1,
+      cont: '白色 xl',
+      price: 100
+    }
+    ]
+  },
+
+  onReady() {
+    this.getTotalPrice();
+  },
+
+  onShow: function () {
+    const self = this;
+    wx.getStorage({
+      key: 'address',
+      success(res) {
+        self.setData({
+          address: res.data,
+          hasAddress: true
+        })
+      }
+    }),
+      wx.getStorage({
+        key: 'region',
+        success(res) {
+          self.setData({
+            region: res.data,
+            hasAddress: true
+          })
+        }
+      })
+  },
+
+  /**
+   * 计算总价
+   */
+  getTotalPrice: function() {
+    let orders = this.data.orders;
+    let total = 0;
+    let sum = 0;
+    let freight = 10;
+    for (let i = 0; i < orders.length; i++) {
+      total += orders[i].num * orders[i].price;
+      sum = total + freight;
+    }
+    this.setData({
+      total: total,
+      sum: sum
+    })
+  },
+  // 再次购买
+  formBuy:function(){
+    wx.navigateTo({
+      url: '../goods/goods',
+    })
+  },
+  // 申请取消订单
+  
+})

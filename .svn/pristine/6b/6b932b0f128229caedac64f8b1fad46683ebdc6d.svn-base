@@ -1,0 +1,17 @@
+<view class="main">
+  <view class="orders-box">
+        <view class="orders-list" wx:for="{{orders}}" wx:key="index">
+            <view class="orders-number">订单编号：{{item.number}}</view>
+            <view class="orders-detail">
+                <image src="{{item.thumb}}"></image>
+                <view class="">{{item.name}}</view>
+                <view class="">{{item.count}}</view>
+                <text class="orders-status">{{item.status}}</text>
+            </view>
+            <view class="orders-footer">
+                <text>实付：￥{{item.money}}</text>
+                <button size="mini" class="orders-btn" bindtap="payOrders">付款</button>
+            </view>
+        </view>
+    </view>
+</view>

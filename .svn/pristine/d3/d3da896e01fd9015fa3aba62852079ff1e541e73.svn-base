@@ -1,0 +1,52 @@
+{
+  "pages":[    
+    "pages/index/index",    
+    "pages/mine/mine",    
+    "pages/register/register",         
+    "pages/login/login",
+    "pages/orders/orders",
+    "pages/order-detail/order-detail",
+    "pages/logistics/logistics",
+    "pages/address/address",
+    "pages/goods/goods",
+    "pages/cart/cart",
+    "pages/contact-us/contact-us",
+    "pages/company-profile/company-profile",
+    "pages/list/list",
+    "pages/classes/classes", 
+    "pages/logs/logs"
+  ],
+  "window":{
+    "backgroundTextStyle":"white",
+    "navigationBarBackgroundColor": "#ff0033",
+    "navigationBarTitleText": "微秒店",
+    "navigationBarTextStyle":"white"
+  },
+  "tabBar": {
+    "selectedColor": "#ff0033",
+    "list": [{
+      "pagePath": "pages/index/index",
+      "text": "首页",
+      "iconPath": "images/shouye.png",
+      "selectedIconPath": "images/shouyefill.png"
+    },
+    {
+      "pagePath": "pages/cart/cart",
+      "text": "购物车",
+      "iconPath": "images/shopping.png",
+      "selectedIconPath": "images/shoppingfill.png"
+    },
+    {
+      "pagePath": "pages/mine/mine",
+      "text": "我的",
+      "iconPath": "images/yonghu.png",
+      "selectedIconPath": "images/yonghufill.png"
+    }
+    ]
+  },
+  "networkTimeout": {
+    "request": 10000,
+    "downloadFile": 10000
+  }
+
+}

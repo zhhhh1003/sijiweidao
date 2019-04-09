@@ -1,0 +1,18 @@
+<view class="main">
+  <view class="orders-box">
+        <view class="orders-list" wx:for="{{orders}}" wx:key="index">
+            <view class="orders-number">卖家已发货</view>
+            <view class="orders-detail">
+                <image src="{{item.thumb}}"></image>
+                <view class="">{{item.name}}</view>
+                <view class="">{{item.count}}</view>
+            </view>
+            <view class="orders-footer">
+                <text>实付：￥{{item.money}}</text>
+                
+                <button size="mini" class="orders-btn">确认收货</button>
+                  <button size="mini" class="orders-btn">查看物流</button>
+            </view>
+        </view>
+    </view>
+</view>

@@ -1,0 +1,113 @@
+Page({
+  data: {
+    list: [
+      {
+        "id": 0,
+        "name": "生鲜产品"
+      },
+      {
+        "id": 1,
+        "name": "鱼肉类"
+      },
+      {
+        "id": 2,
+        "name": "蛋糕"
+      }
+    ],
+    cate1:[{
+      id:0,
+      cate2:[
+      {
+        id:0,
+        cate:'水果',
+        cate3:[{
+          id:0,
+          thumb:'../../images/swiper1.jpg',
+          name: '性感露背'
+        }, {
+            id: 1,
+            thumb: '../../images/swiper2.jpg',
+            name: '小红裙'
+          },{
+            id:2,
+            thumb: '../../images/swiper2.jpg',
+            name: '小红裙'
+          }]
+      },
+      {
+          id: 1,
+          cate: '蔬菜',
+          cate3: [{
+            id: 0,
+            thumb: '../../images/swiper1.jpg',
+            name: '性感露背'
+          }, {
+            id: 1,
+            thumb: '../../images/swiper2.jpg',
+            name: '小红裙'
+          }]
+      }]
+    },
+    {
+      id: 1,
+      cate2: [
+        {
+          id: 0,
+          cate: '鱼类',
+          cate3: [{
+            id: 0,
+            thumb: '../../images/swiper1.jpg',
+            name: '性感露背'
+          }, {
+            id: 1,
+            thumb: '../../images/swiper2.jpg',
+            name: '小红裙'
+          }]
+        },
+        {
+          id: 1,
+          cate: '牛肉类',
+          cate3: [{
+            id: 0,
+            thumb: '../../images/swiper1.jpg',
+            name: '性感露背'
+          }, {
+            id: 1,
+            thumb: '../../images/swiper2.jpg',
+            name: '小红裙'
+          }]
+        }]
+    }],
+    sortindex: 0,
+    isScroll: false,
+    
+  },
+  onload(){
+   
+  },
+  onReady() {
+    var self = this;
+    // wx.request({
+    //   url: 'http://www.gdfengshuo.com/api/wx/cate-detail.txt',
+    //   success(res) {
+    //     console.log(res.data)
+    //     self.setData({
+    //       detail: res.data.result
+    //     })
+    //   }
+    // });
+
+  },
+
+  //tab切换
+  setSortBy: function (e) { //选择排序方式
+    const d = this.data;
+    const dataset = e.currentTarget.dataset;
+    this.setData({
+      sortindex: dataset.sortindex,
+      sortid: dataset.sortid
+    })
+    console.log('排序方式id：' + this.data.sortid);
+  },
+
+})

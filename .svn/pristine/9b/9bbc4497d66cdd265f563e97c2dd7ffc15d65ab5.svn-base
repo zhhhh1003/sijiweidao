@@ -1,0 +1,27 @@
+<view class="main">
+    <view class="form-box"> 
+     <form bindsubmit="formSubmit">
+    <view class="address-contant">
+    <text>收货人</text>
+     <input value="{{address.name}}" bindinput="bindName"/>
+    </view>
+    <view class="address-contant">
+     <text>联系方式</text>
+     <input name="mobile" type="number" value="{{address.phone}}" bindinput="bindPhone" />
+    </view>
+     <view class="address-contant">
+      <picker mode="region" bindchange="bindRegion" value="{{region}}">
+       <view class="picker">
+         省市区选择 {{region[0]}} {{region[1]}} {{region[2]}}
+       </view>
+      </picker>
+    </view>  
+    <view class="address-contant">
+     <text>详细地址</text>
+      <input value="{{address.detail}}" bindinput="bindDetail"/>
+    </view>
+    
+     <button form-type="submit">保存</button>
+    </form> 
+    </view>
+</view>

@@ -1,0 +1,5 @@
+@import "../common/tab.wxss";
+@import "../common/common.wxss";
+.goods-content{
+    padding: 40rpx;
+}

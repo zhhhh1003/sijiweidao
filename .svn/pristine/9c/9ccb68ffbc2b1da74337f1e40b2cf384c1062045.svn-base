@@ -1,0 +1,45 @@
+<view class="container">
+   <view class="main" wx:if="{{hasUser}}"> 
+<view class="header">
+		<image class="avatar" src="{{userInfo.avatarUrl}}" />
+		<view class="nickname">{{userInfo.nickName}}</view>
+	</view>
+  <view class="my-list">
+  <navigator class="my-item" url="../address/address">
+			<image src="../../images/address.png" mode="aspectFit" bindtap="addAddress"></image>
+			<text>地址管理</text>
+		</navigator>
+		<navigator class="my-item" url="../myorder/myorder">
+			<image src="../../images/full-order.png" mode="aspectFit"></image>
+			<text>全部订单</text>
+		</navigator>
+		<navigator class="my-item" url="../payment/payment">
+			<image src="../../images/pending-payment.png" mode="aspectFit"></image>
+			<text>待付款</text>
+		</navigator>
+		<navigator class="my-item" url="../receive/receive">
+			<image src="../../images/receiving.png" mode="aspectFit"></image>
+			<text>待收货</text>
+		</navigator>
+	</view>
+   </view> 
+    <view class="main" wx:else>  
+   <view class="user_reset">
+    <form bindsubmit="formSubmit">
+   <view class="classname">
+   <input type="number" name="mobile" placeholder="请输入手机号" value="{{user.phone}}" bindinput="bindPhone"  />
+   </view>
+   <!-- <view class="classname">
+   <input type="password" placeholder="请输入密码"  value="{{user.password}}" bindinput="bindPassword"/>
+   </view> -->
+    <view  class="section">
+      <input class="verification" name="verification" value="{{verification}}" 
+      placeholder="验证码" placeholder-class="input-placeholder" />
+      <button size="mini" plain="true" class="verification-btn" hover-class="btn-hover" 
+      bindtap="bindGetVerification"> 获取验证码 </button>
+    </view>
+    <button form-type="submit">绑定</button>
+    </form>
+   </view>
+    </view>  
+</view>

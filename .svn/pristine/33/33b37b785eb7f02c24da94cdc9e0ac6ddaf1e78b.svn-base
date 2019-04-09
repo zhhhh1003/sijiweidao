@@ -1,0 +1,37 @@
+.header {
+	background: #feb70f;
+	padding: 30rpx;
+  width:100%;
+  background:#ff0033;
+}
+.header .avatar {
+	display: block;
+  margin:0 auto;
+	width: 140rpx;
+	height: 140rpx;
+	border-radius: 50%;
+	border: 2px solid #ccc;
+}
+.header .nickname {
+	color: #fff;
+	font-size: 20px;
+	line-height: 2;
+	text-align: center;
+}
+.my-list{
+  width:100%;
+}
+.my-item{
+	border-bottom: 1rpx solid #ddd;
+	padding: 20rpx;
+  width:100%;
+	font-size: 28rpx;
+  color: #515151;
+	background: #fff url('../../images/xiangyou1.png') no-repeat 98% 50% / auto 36rpx;
+}
+.my-item image{
+	width: 40rpx;
+	height: 40rpx;
+	margin-right: 20rpx;
+	vertical-align: -6rpx;
+}

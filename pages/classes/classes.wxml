@@ -1,0 +1,30 @@
+
+<view class="main">
+    <scroll-view class="categroy-left" scroll-y >
+        <view wx:for="{{list}}"  wx:key="{{item.id}}" data-sortid="{{item.id}}" 
+        data-sortindex="{{index}}"
+            bindtap="setSortBy"
+            class="cate-list {{sortindex==index?'on':''}}">{{item.name}}</view>
+    </scroll-view>
+
+    <scroll-view class="categroy-right" scroll-y >
+        <block wx:for="{{cate1}}"  wx:key="index">
+         <block wx:if="{{index == sortindex}}">
+            <view wx:for="{{item.cate2}}" id="{{item.id}}" class="cate-box">
+                <view class="cate-title">
+                    <text>{{item.cate}}</text>
+                </view>
+                <view class="product">
+                    <view class="product-list" wx:for="{{item.cate3}}" wx:key="index" wx:for-item="val">
+                        <navigator url="{{'../list/list?type=category&id=' + val.id}}">
+                            <image src="{{val.thumb}}"></image>
+                            <view class="classname"><text>{{val.name}}</text></view>
+                        </navigator>
+                    </view>
+                </view>
+            </view>
+             </block> 
+        </block>
+    </scroll-view>
+
+</view>

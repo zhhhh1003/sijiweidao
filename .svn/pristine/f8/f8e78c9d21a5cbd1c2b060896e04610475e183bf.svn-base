@@ -1,0 +1,24 @@
+<view class="container">
+  <view class="header">
+		<image class="avatar" src="{{userInfo.avatarUrl}}" />
+		<view class="nickname">{{userInfo.nickName}}</view>
+	</view>
+  <view class="my-list">
+  <navigator class="my-item" url="../address/address">
+			<image src="../../images/address.png" mode="aspectFit" bindtap="addAddress"></image>
+			<text>地址管理</text>
+		</navigator>
+		<navigator class="my-item" url="../myorder/myorder">
+			<image src="../../images/full-order.png" mode="aspectFit"></image>
+			<text>全部订单</text>
+		</navigator>
+		<navigator class="my-item" url="">
+			<image src="../../images/pending-payment.png" mode="aspectFit"></image>
+			<text>待付款</text>
+		</navigator>
+		<navigator class="my-item" url="">
+			<image src="../../images/receiving.png" mode="aspectFit"></image>
+			<text>待收货</text>
+		</navigator>
+	</view>
+</view>

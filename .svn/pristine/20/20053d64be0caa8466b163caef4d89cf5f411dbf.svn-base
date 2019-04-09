@@ -1,0 +1,95 @@
+<import src="../common/tab.wxml" />
+<view class="container">
+  <template is="tab" data="{{list:list,sortindex:sortindex}}"/>
+    <view class="goods-content">
+      <view wx:if="{{sortindex === 0}}">
+        <view wx:if="{{hasList}}">
+          <scroll-view class="container-body" scroll-y="true" bindscrolltolower="lower" style="height: 1200rpx;">
+            <view class="orders-box">
+              <view class="orders-list" wx:for="{{orders}}" wx:key="index">
+                  <view class="orders-number">状态：{{item.order_status}}</view>
+                  <view class="orders-money">总价：￥{{item.total_fee}}</view>
+                  <view class="orders-detail" wx:for="{{item.goods_list}}" wx:for-item="val">
+                      <image src="{{val.goods_thumb}}"></image>
+                      <view class="">{{val.goods_name}}</view>
+                      <view class="">{{val.goods_number}}件</view>
+                  </view>
+                  <view class="orders-footer">
+                      <button wx:if="{{item.ispay}}" size="mini" class="orders-btn" bindtap="payOrders">付款</button>
+                      <button wx:if="{{item.iscancel}}" size="mini" class="orders-btn orders-cancel" bindtap="cancelOrders">
+                        取消
+                      </button>
+                      <button wx:if="{{item.isreceive}}" size="mini" class="orders-btn orders-receive" bindtap="receiveOrders">
+                        确认收货
+                      </button>                  
+                  </view>
+              </view>
+            </view>    
+          </scroll-view>
+        </view>
+        <view wx:else>
+          <view class="cart-no-data">订单是空的哦</view>
+        </view>
+      </view>
+      <view wx:if="{{sortindex === 1}}">
+        <view wx:if="{{hasList}}">
+          <scroll-view class="container-body" scroll-y="true" bindscrolltolower="lower" style="height: 1200rpx;">
+            <view class="orders-box">
+              <view class="orders-list" wx:for="{{orders}}" wx:key="index">
+                  <view class="orders-number">状态：{{item.order_status}}</view>
+                  <view class="orders-money">总价：￥{{item.total_fee}}</view>
+                  <view class="orders-detail" wx:for="{{item.goods_list}}" wx:for-item="val">
+                      <image src="{{val.goods_thumb}}"></image>
+                      <view class="">{{val.goods_name}}</view>
+                      <view class="">{{val.goods_number}}件</view>
+                  </view>
+                  <view class="orders-footer">
+                      <button wx:if="{{item.ispay}}" size="mini" class="orders-btn" bindtap="payOrders">付款</button>
+                      <button wx:if="{{item.iscancel}}" size="mini" class="orders-btn orders-cancel" bindtap="cancelOrders">
+                        取消
+                      </button>
+                      <button wx:if="{{item.isreceive}}" size="mini" class="orders-btn orders-receive" bindtap="cancelOrders">
+                        确认收货
+                      </button>                  
+                  </view>
+              </view>
+            </view>    
+          </scroll-view>
+        </view>
+        <view wx:else>
+          <view class="cart-no-data">订单是空的哦</view>
+        </view>
+      </view>  
+      <view wx:if="{{sortindex === 2}}">
+        <view wx:if="{{hasList}}">
+          <scroll-view class="container-body" scroll-y="true" bindscrolltolower="lower" style="height: 1200rpx;">
+            <view class="orders-box">
+              <view class="orders-list" wx:for="{{orders}}" wx:key="index">
+                  <view class="orders-number">状态：{{item.order_status}}</view>
+                  <view class="orders-money">总价：￥{{item.total_fee}}</view>
+                  <view class="orders-detail" wx:for="{{item.goods_list}}" wx:for-item="val">
+                      <image src="{{val.goods_thumb}}"></image>
+                      <view class="">{{val.goods_name}}</view>
+                      <view class="">{{val.goods_number}}件</view>
+                  </view>
+                  <view class="orders-footer">
+                      <button wx:if="{{item.ispay}}" size="mini" class="orders-btn" bindtap="payOrders">付款</button>
+                      <button wx:if="{{item.iscancel}}" size="mini" class="orders-btn orders-cancel" bindtap="cancelOrders">
+                        取消
+                      </button>
+                      <button wx:if="{{item.isreceive}}" size="mini" class="orders-btn orders-receive" bindtap="cancelOrders">
+                        确认收货
+                      </button>                  
+                  </view>
+              </view>
+            </view>    
+          </scroll-view>
+        </view>
+        <view wx:else>
+            <view class="cart-no-data">订单是空的哦</view>
+        </view>       
+      </view> 
+    </view>
+</view>
+
+ 

@@ -1,0 +1,56 @@
+@import "../common/common.wxss";
+page{
+  height:100%;
+  background-image: url('http://www.sijiweidao.com/Resource/Home/images/header_bg.jpg');
+  background-repeat: repeat;
+}
+/* 标题 */
+.title{
+    position: relative;
+    height: 30rpx;
+    line-height: 30rpx;
+    padding:30rpx 0 55rpx;
+    text-align: center;
+    margin-top: 50rpx;
+    color:  #3e3e3e;
+    font-size: 38rpx;
+}
+.title::before{
+    position: absolute;
+    left: 130rpx;
+    top: 43rpx;
+    content: '';
+    width: 120rpx;
+    height: 4rpx;
+    background: #3e3e3e;
+}
+.title::after{
+    position: absolute;
+    right: 130rpx;
+    top: 43rpx;
+    content: '';
+    width: 120rpx;
+    height: 4rpx;
+    background: #3e3e3e;
+}
+/*内容  */
+.content{
+  width:100%;
+  padding:40rpx;
+  box-sizing: border-box;
+  -webkit-box-sizing: boeder-box;
+}
+.content text{
+  width:100%;
+  display: block;
+  font-size: 26rpx;
+  padding:10rpx 0;
+  
+}
+.content .contant-title{
+  text-align: center;
+  padding:40rpx 0;
+  font-size: 32rpx ! important; 
+  color:#5A5A5A;
+}
+

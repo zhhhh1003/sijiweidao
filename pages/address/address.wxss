@@ -1,0 +1,44 @@
+@import '../common/common.wxss';
+
+.form-box{
+    /* padding-left: 30rpx; */
+    width:100%;
+    padding:0 15rpx;
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box
+}
+.address-contant{
+  width:100%;
+  height:90rpx;
+  line-height: 90rpx;
+  overflow: hidden;
+  font-size: 28rpx;
+  border-bottom: 1px solid #aaa;
+}
+.address-contant text{
+  float: left;
+  height:90rpx;
+  line-height: 90rpx;
+  padding:0 15rpx;
+  /* display: inline-block; */
+  width:20%;
+}
+.address-contant view{
+  width:100%;
+}
+.address-contant input{
+  float: left;
+  width:70%;
+  height:90rpx;
+    border-bottom: 1rpx solid #ededed;
+    font-size: 28rpx;
+    
+}
+.form-box .input-placeholder{
+    color: #aaa;
+}
+.form-box button{
+    margin:30rpx 0 0 0;
+    background: #ff0033;
+    color:#fff;
+}

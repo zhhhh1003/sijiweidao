@@ -1,0 +1,45 @@
+<view class="container">
+  <swiper class="index-banner" indicator-dots="{{true}}"
+    autoplay="{{true}}" interval="{{4000}}" indicator-active-color="#ff0033" duration="{{1000}}">
+    <block wx:for="{{imgUrls}}" wx:key="*this">
+      <swiper-item>
+        <image src="{{item}}" mode="aspectFill" class="slide-image"/>
+      </swiper-item>
+    </block>
+  </swiper>
+  <view class="goods-contact">
+    <text>{{servicedetail.name}}</text>
+    <text class="goods-price">{{servicedetail.price}}</text>
+  </view>
+  <view class="goods-format">
+   
+     <view class="cart-count-box">
+      <text>数量:</text>
+                    <text class="cart-count-down" bindtap="minusCount" data-index="{{index}}">-</text>
+                    <text class="cart-count-num">{{num}}</text>
+                    <text class="cart-count-add" bindtap="addCount" data-index="{{index}}">+</text>
+                </view>
+  </view>
+  <view class="swiper-tab">
+    <view  bindtap="setSortBy" data-sortindex="{{index}}" data-sortid="{{item.id}}" class="{{sortindex==index?'active':''}} swiper-tab-list" wx:for="{{sort}}" wx:key="{{item.id}}">{{item.title}}</view>
+    <view class="goods-content">
+            <view wx:if="{{sortindex === 0}}">{{goods.detail}}</view>
+            <view wx:if="{{sortindex === 1}}">{{goods.parameter}}</view>
+            <view wx:if="{{sortindex === 2}}">{{goods.service}}</view>
+   </view>
+  </view>
+   <!--<image wx:if="{{show}}" src="/images/cart.png" class="to-carts-icon"></image>-->
+  	<view class="container-footer">
+      <navigator open-type="switchTab" url="../cart/cart">
+            <view class="shopping-car carts-icon {{scaleCart?'on':''}}">
+                <image src="/images/cart.png"></image>
+                <text class="carts-icon-num" wx:if="{{hasCarts}}">{{totalNum}}</text>
+            </view>
+        </navigator>
+     <text class="apply-btn" bindtap="goApply">立即购买</text>
+	  	<text  bindtap="addToCart">加入购物车</text>
+	</view>
+</view>
+
+
+

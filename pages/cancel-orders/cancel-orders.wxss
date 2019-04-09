@@ -1,0 +1,14 @@
+@import "../common/common.wxss";
+.wrap{
+  padding:40rpx;
+}
+.radio{
+  margin-left: 20rpx;
+}
+.left{
+  float: left!important;
+}
+.detail-box{
+  width:100%;
+  overflow: hidden;
+}

@@ -1,0 +1,19 @@
+@import "../common/common.wxss";
+page{
+  height:100%;
+  background: url('http://www.sijiweidao.com/Resource/Home/images/header_bg.jpg');
+   background-repeat: repeat;
+}
+.main{
+  margin-top: 250rpx;
+}
+text{
+  width:100%;
+  padding:20rpx;
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  font-size: 26rpx;
+  display: block;
+  text-align: center;
+  color:#a5a5a5;
+}

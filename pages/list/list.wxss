@@ -1,0 +1,7 @@
+@import "../common/common.wxss";
+@import "../index/index.wxss";
+.none-list{
+    padding:40rpx 0;
+    color: #999;
+    text-align: center;
+}
